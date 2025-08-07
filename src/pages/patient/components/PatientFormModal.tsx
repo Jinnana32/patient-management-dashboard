@@ -10,23 +10,25 @@ type Props = {
   setIsOpen: (isOpen: boolean) => void;
 };
 
+const defaultFormData = {
+  name: '',
+  age: 10,
+  gender: 'male' as const,
+  condition: '',
+  status: 'active' as const,
+  email: '',
+  phone: '',
+  dateOfBirth: '',
+  lastVisit: '',
+};
+
 const AddPatientForm: React.FC<Props> = ({
   onSubmit,
   onClose,
   isOpen,
   setIsOpen,
 }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    age: 10,
-    gender: 'male' as const,
-    condition: '',
-    status: 'active' as const,
-    email: '',
-    phone: '',
-    dateOfBirth: '',
-    lastVisit: '',
-  });
+  const [formData, setFormData] = useState(defaultFormData);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -40,6 +42,7 @@ const AddPatientForm: React.FC<Props> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit(formData);
+    setFormData(defaultFormData);
     onClose();
   };
 
@@ -129,11 +132,7 @@ const AddPatientForm: React.FC<Props> = ({
         />
 
         <div className="flex justify-end gap-2">
-          <Button
-            type="button"
-            onClick={onClose}
-            className="bg-white border border-gray-300"
-          >
+          <Button type="button" onClick={onClose} variant="secondary">
             Cancel
           </Button>
           <Button type="submit">Add</Button>

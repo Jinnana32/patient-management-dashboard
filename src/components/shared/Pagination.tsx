@@ -11,7 +11,7 @@ const Pagination = React.memo(({ page, onPageChange, hasNext }: Props) => {
   return (
     <div className="flex justify-center items-center gap-4 mt-4">
       <Button
-        className="px-4 py-2 bg-gray-200 rounded"
+        variant="secondary"
         onClick={() => onPageChange(page - 1)}
         disabled={page === 1}
       >
@@ -19,7 +19,7 @@ const Pagination = React.memo(({ page, onPageChange, hasNext }: Props) => {
       </Button>
       <span className="text-sm">Page {page}</span>
       <Button
-        className="px-4 py-2 bg-gray-200 rounded"
+        variant="secondary"
         onClick={() => onPageChange(page + 1)}
         disabled={!hasNext}
       >
