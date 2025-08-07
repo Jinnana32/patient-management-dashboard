@@ -1,11 +1,8 @@
 import './App.css';
+import PatientPage from './pages/patient';
 
 function App() {
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </>
-  );
+  return <PatientPage />;
 }
 
 export default App;
