@@ -1,3 +1,4 @@
+import React from 'react';
 import Button from '../ui/Button';
 
 type Props = {
@@ -6,7 +7,7 @@ type Props = {
   hasNext: boolean;
 };
 
-const Pagination = ({ page, onPageChange, hasNext }: Props) => {
+const Pagination = React.memo(({ page, onPageChange, hasNext }: Props) => {
   return (
     <div className="flex justify-center items-center gap-4 mt-4">
       <Button
@@ -26,6 +27,8 @@ const Pagination = ({ page, onPageChange, hasNext }: Props) => {
       </Button>
     </div>
   );
-};
+});
+
+Pagination.displayName = 'Pagination';
 
 export default Pagination;

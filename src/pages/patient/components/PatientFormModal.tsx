@@ -98,6 +98,36 @@ const AddPatientForm: React.FC<Props> = ({
           <option value="pending">Pending</option>
         </select>
 
+        <input
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Email"
+          className="w-full border rounded px-3 py-2"
+          required
+        />
+
+        <input
+          name="phone"
+          type="tel"
+          value={formData.phone}
+          onChange={handleChange}
+          placeholder="Phone"
+          className="w-full border rounded px-3 py-2"
+          required
+        />
+
+        <input
+          name="dateOfBirth"
+          type="date"
+          value={formData.dateOfBirth}
+          onChange={handleChange}
+          placeholder="Date of Birth"
+          className="w-full border rounded px-3 py-2"
+          required
+        />
+
         <div className="flex justify-end gap-2">
           <Button
             type="button"
