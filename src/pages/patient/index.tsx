@@ -23,6 +23,7 @@ const PatientPage = () => {
 
   const debouncedSearch = useDebounce(search, 500);
 
+  // This right now fetches from a mock in memory store
   const { data, loading, error } = useQuery(GET_PATIENTS, {
     variables: {
       search: debouncedSearch,
@@ -34,6 +35,7 @@ const PatientPage = () => {
 
   const { addPatient, loading: addPatientLoading } = useAddPatient({
     onSuccess: () => {
+      // Ideally we want this to be a toast notification but alert is simple here
       alert('Patient added successfully');
     },
     onError: () => {

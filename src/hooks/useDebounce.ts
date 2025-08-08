@@ -1,6 +1,6 @@
-// src/hooks/useDebounce.ts
 import { useState, useEffect } from 'react';
 
+// Simple debounce hook to allow us to buy sometime while users type
 export function useDebounce<T>(value: T, delay: number = 300): T {
   const [debouncedValue, setDebouncedValue] = useState<T>(value);
 

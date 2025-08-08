@@ -1,0 +1,52 @@
+```mermaid
+flowchart LR
+    subgraph Client
+        WebApp[React + TypeScript + Tailwind]
+        MobileApp[React Native]
+    end
+    subgraph API Layer
+        APIGateway[AWS API Gateway]
+        GraphQL[GraphQL Server (Apollo)]
+    end
+    subgraph Backend
+        Service1[Patient Service - Node.js/NestJS]
+        Service2[Appointment Service - Node.js/NestJS]
+        Service3[Notification Service]
+        AuthService[Authentication Service]
+    end
+    subgraph Data Layer
+        RDS[(PostgreSQL - AWS RDS)]
+        Redis[(Redis Cache)]
+        S3[(AWS S3 - File Storage)]
+    end
+    subgraph Monitoring & Logging
+        Datadog[Datadog - Metrics & Logs]
+        Sentry[Sentry - Error Tracking]
+    end
+    subgraph Security
+        WAF[AWS WAF]
+        Shield[AWS Shield]
+        KMS[AWS KMS]
+    end
+    Client -->|HTTPS| APIGateway
+    APIGateway --> WAF
+    WAF --> Shield
+    Shield --> GraphQL
+    GraphQL --> Service1
+    GraphQL --> Service2
+    GraphQL --> Service3
+    GraphQL --> AuthService
+    Service1 --> RDS
+    Service1 --> Redis
+    Service2 --> RDS
+    Service2 --> Redis
+    Service3 --> S3
+    RDS --> KMS
+    S3 --> KMS
+    Service1 --> Datadog
+    Service2 --> Datadog
+    Service3 --> Datadog
+    Service1 --> Sentry
+    Service2 --> Sentry
+    Service3 --> Sentry
+```

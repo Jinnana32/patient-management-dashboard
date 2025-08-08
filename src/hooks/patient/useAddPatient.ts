@@ -1,4 +1,3 @@
-// hooks/useAddPatient.ts
 import { useMutation } from '@apollo/client';
 import { GET_PATIENTS } from '../../graphql/queries';
 import { ADD_PATIENT } from '../../graphql/mutations';
